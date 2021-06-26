@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Puzzle Game">
+    <meta name="author" content="Nightfox26">
+    <title>Puzzle Game</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/css.css">
+
+    <!--[if IE]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class='jumbotron' id="title">Puzzle Magique</h1>
+
+
+        <a href="view/andrew.html">
+            <div id="andrew" class='cadrelayer  pull-left'>
+                
+            </div>
+        </a>
+
+        <a href="view/ambre.html">
+            <div id="ambre" class='cadrelayer pull-right'>
+                
+            </div>
+        </a>
+
+    </div>
+
+    <script src="jquery/jquery-1.12.0.min.js"></script>
+
+    <script>
+        $(function () {
+            var andrew = $('#andrew');
+            var ambre = $('#ambre');
+            var title = $('#title');
+
+            var htScreen = window.innerHeight;
+            $('body').css('height', htScreen);
+
+            andrew.mouseenter(function () {
+                ambre.fadeOut(150, function () {
+                    $('body').css({
+                        'background-image': 'url("image/bg/bg-andrew.jpg")',
+                        'background-size': '100% 100%'
+                    });
+                    title.css('visibility', 'hidden');
+                });
+            });
+
+            andrew.mouseleave(function () {
+                ambre.fadeToggle(150, function () {
+                    $('body').css({
+                        'background-image': 'linear-gradient(to right, blue,  violet)',
+                        'background-size': '100% 100%'
+                    });
+                    title.css('visibility', 'visible');
+                });
+            });
+
+            ambre.mouseenter(function () {
+                andrew.fadeOut(150, function () {
+                    $('body').css({
+                        'background-image': 'url("image/bg/bg-ambre.jpg")',
+                        'background-size': '100% 100%'
+                    });
+                    title.css('visibility', 'hidden');
+                });
+            });
+
+            ambre.mouseleave(function () {
+                andrew.fadeToggle(150, function () {
+                    $('body').css({
+                        'background-image': 'linear-gradient(to right, blue,  violet)',
+                        'background-size': '100% 100%'
+                    });
+                    title.css('visibility', 'visible');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Page Andrew</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../css/css.css">
+
+    <!--[if IE]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class='container'>
+
+        <a href="game.html">
+            <div id="disney" class='cadreGameSelect'>
+                <h2 class="titleCadre">Disney</h2>
+            </div>
+        </a>
+
+        <a href="game.html">
+            <div id="barbie" class='cadreGameSelect '>
+                <h2 class="titleCadre">Barbie</h2>
+            </div>
+        </a>
+
+        <a href="game.html">
+            <div id="chat2" class='cadreGameSelect'>
+                <h2 class="titleCadre">Chat</h2>
+            </div>
+        </a>
+    </div>
+
+
+    <script src="../jquery/jquery-1.12.0.min.js"></script>
+    <script>
+        $(function () {
+            
+            var element = $('#disney,#barbie,#chat2');
+            var htScreen = window.innerHeight;
+            $('body').css('height', htScreen);
+
+            element.mouseenter(function () {
+                var photoName = $(this).attr('id');
+                $('a').css('visibility', 'hidden');
+                $(this).parent().css('visibility', 'visible');
+                $('body').css({'background-image':'url("../image/bg/fond ' +photoName+'.jpg")', 'background-size': '100% 100%'});                   
+            });
+            
+
+            element.mouseleave(function () {
+                $('a').css('visibility', 'visible');
+                $('body').css('background-image', 'linear-gradient(to right, blue,  violet)');
+            });
+            
+            element.click(function(){
+               var param = $(this).attr('id');
+                $(this).parent().attr('href','game.html?level=easy&image='+param);
+            });
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>
